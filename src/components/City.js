@@ -11,6 +11,8 @@ import CardMedia from "@material-ui/core/CardMedia";
 import Hidden from "@material-ui/core/Hidden";
 // import Basic from "./Basic";
 import "./Basic.css";
+import { Link, useParams } from "react-router-dom";
+
 
 const useStyles = makeStyles((theme) => ({
   card: {
@@ -41,22 +43,24 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function Featuredpic() {
+export default function City() {
   const classes = useStyles();
-  // const { post } = props;
-  const [spot, setSpot] = React.useState([]);
+  const params = useParams();
+  const city = params.city;
+  const [cityspot, setCityspot] = React.useState([]);
   // const spotList = ["Picture", "Name", "Description"];
   const [count, setCount] = useState(30);
+  console.log(city);
   console.log(count);
-  console.log(spot);
+  console.log(cityspot);
 
 
   useEffect(() => {
     async function fetchData() {
       const result = await axios.get(
-        `https://ptx.transportdata.tw/MOTC/v2/Tourism/ScenicSpot?$top=30`
+        `https://ptx.transportdata.tw/MOTC/v2/Tourism/ScenicSpot/${city}?$top=30`
       );
-      setSpot(result.data);
+      setCityspot(result.data);
       // console.log(spot);
     }
 
@@ -79,20 +83,23 @@ export default function Featuredpic() {
       // console.log(isVisible);
     };
     
+    
     // const options = {
       //   root: null,
       //   rootMargin: "0px",
       //   threshold: 1.0,
       // };
-      async function fetchMoredata() {
-        const results = await axios.get(
-          `https://ptx.transportdata.tw/MOTC/v2/Tourism/ScenicSpot?$skip=${count}&$top=30`
+      function fetchMoredata() {
+        
+        const results = axios.get(
+          `https://ptx.transportdata.tw/MOTC/v2/Tourism/ScenicSpot/${city}?$top=30&$skip=${count}`
+        //   https://ptx.transportdata.tw/MOTC/v2/Tourism/ScenicSpot/LienchiangCounty?$top=30&$skip=30
         );
 
         // console.log(results.data);
-        if(spot.length===count){
+        if(cityspot.length===count){
 
-          setSpot(spot.concat(results.data));
+          setCityspot(cityspot.concat(results.data));
           handleChangeCount();
 
         }
@@ -107,7 +114,9 @@ export default function Featuredpic() {
           observer.observe(containerRef.current);
           // setCount(count + 30);
         }
-        if (isVisible === true) {
+
+        
+        if (isVisible === true & cityspot.length > 30) {
           fetchMoredata(); 
           setIsVisible(false);
         }
@@ -148,7 +157,7 @@ export default function Featuredpic() {
         alignItems="flex-start"
         className={classes.gridbox}
       >
-        {spot.map((spots, index) => (
+        {cityspot.map((cityspots, index) => (
           <Grid item xs={12} md={6}>
             <div className={classes.content}>
               <Card className={classes.card}>
@@ -158,16 +167,16 @@ export default function Featuredpic() {
                       {/* <Typography component="h2" variant="h5"> */}
                       {/* {post.title} */}
                       <CardMedia
-                      image={spots['Picture'].PictureUrl1}
+                      image={cityspots['Picture'].PictureUrl1}
                       className={classes.photo}
                     />
                       {/* </Typography> */}
                       <Typography variant="subtitle1" color="inherit">
-                        {spots["Name"]}
+                        {cityspots["Name"]}
                         {/* {post.date} */}
                       </Typography>
                       <Typography variant="subtitle1" paragraph>
-                        {spots["Description"]}
+                        {cityspots["Description"]}
                       </Typography>
                       <Typography
                         variant="subtitle1"

@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "./Navbar";
 import MainPic from "./Mainpic";
 import FeaturedPic from "./Featuredpic";
+import City from "./City";
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
@@ -104,7 +105,8 @@ export default function Homepage() {
           <Navbar num={0} />
         </Grid>
         <Grid container className={classes.home}>
-          <Featuredpic />
+          {/* <Featuredpic /> */}
+          {/* <City /> */}
           {/* {featuredPic.map((post) => (
               <FeaturedPic key={post.title} post={post} />
             ))} */}

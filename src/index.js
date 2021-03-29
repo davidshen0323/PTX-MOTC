@@ -8,6 +8,7 @@ import {BrowserRouter, Switch, Route} from 'react-router-dom';
 
 import homepage from './components/Homepage';
 import scenicspot from './components/Scenicspot';
+import scenicspotcity from './components/Scenicspotcity';
 
 
 ReactDOM.render(
@@ -17,8 +18,8 @@ ReactDOM.render(
   <BrowserRouter>
   <Switch>
     <Route path="/homepage" component={homepage} />
-    <Route path="/scenicSpot" component={scenicspot} />
-    <Route path="/scenicSpot/:city" component={scenicspot} />
+    <Route exact path="/scenicSpot" component={scenicspot} />
+    <Route exact path="/scenicSpot/:city" component={scenicspotcity} />
     <Route path="/" component={homepage} />
   </Switch>
   </BrowserRouter>
