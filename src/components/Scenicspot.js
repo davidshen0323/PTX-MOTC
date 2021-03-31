@@ -40,6 +40,8 @@ import Scenicspot from "./Scenicspot";
 // import { Link } from 'react-router-dom';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 import Featuredpic from "./Featuredpic";
+import ScrollToTop from "react-scroll-to-top";
+
 
 const useStyles = makeStyles((theme) => ({
   //   img: {
@@ -71,6 +73,8 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
     // alignContent: 'center',
   },
+
+ 
 }));
 
 const mainPic = {
@@ -140,6 +144,7 @@ export default function Sceincspot() {
               <FeaturedPic key={post.title} post={post} />
             ))} */}
         </Grid>
+        <ScrollToTop smooth color="white" style={{backgroundColor: "black"}} />
       </Grid>
       </div>
     

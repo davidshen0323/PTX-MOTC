@@ -41,6 +41,8 @@ import Scenicspot from "./Scenicspot";
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 import Featuredpic from "./Featuredpic";
 import City from "./City";
+import ScrollToTop from "react-scroll-to-top";
+
 
 const useStyles = makeStyles((theme) => ({
   //   img: {
@@ -131,16 +133,17 @@ export default function Scenicspotcity() {
               alt=""
             /> */}
         </Grid>
-        <Grid id="content">
+        <Grid>
           {/* <Button>了解更多</Button> */}
           <Navbar num={2} />
         </Grid>
-        <Grid container className={classes.home}>
+        <Grid id="content" container className={classes.home}>
           <City />
           {/* {featuredPic.map((post) => (
               <FeaturedPic key={post.title} post={post} />
             ))} */}
         </Grid>
+        <ScrollToTop smooth color="white" style={{backgroundColor: "black"}}/>
       </Grid>
       </div>
     
