@@ -1,29 +1,23 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import {BrowserRouter, Switch, Route} from 'react-router-dom';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import reportWebVitals from "./reportWebVitals";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 
-
-import homepage from './components/Homepage';
-import scenicspot from './components/Scenicspot';
-import scenicspotcity from './components/Scenicspotcity';
-
+import homepage from "./components/Homepage";
+import scenicspot from "./components/Scenicspot";
+import scenicspotcity from "./components/Scenicspotcity";
 
 ReactDOM.render(
-  // <React.StrictMode>
-    // <App />
-  // </React.StrictMode>,
   <BrowserRouter>
-  <Switch>
-    <Route path="/homepage" component={homepage} />
-    <Route exact path="/scenicSpot" component={scenicspot} />
-    <Route exact path="/scenicSpot/:city" component={scenicspotcity} />
-    <Route path="/" component={homepage} />
-  </Switch>
-  </BrowserRouter>
-  , document.getElementById('root')
+    <Switch>
+      <Route path="/homepage" component={homepage} />
+      <Route exact path="/scenicSpot" component={scenicspot} />
+      <Route exact path="/scenicSpot/:city" component={scenicspotcity} />
+      <Route path="/" component={homepage} />
+    </Switch>
+  </BrowserRouter>,
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function

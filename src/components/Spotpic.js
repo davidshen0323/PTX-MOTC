@@ -4,7 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
-import taiwan from "../images/taiwan.jpg";
+import taiwan from "../images/taiwan-cover.jpg";
 
 const useStyles = makeStyles((theme) => ({
   mainFeaturedPost: {
@@ -13,9 +13,10 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.common.white,
     marginBottom: theme.spacing(0),
     backgroundImage: `url(${taiwan})`,
-    backgroundSize: "cover",
-    backgroundRepeat: "no-repeat",
-    height: "60em",
+    // backgroundSize: "cover",
+    // backgroundRepeat: "no-repeat",
+    // backgroundPosition: "center",
+    height: "5em",
   },
   overlay: {
     position: "absolute",
@@ -32,17 +33,17 @@ const useStyles = makeStyles((theme) => ({
       padding: theme.spacing(10),
     },
     textAlign: "center",
-    marginTop: "10em",
+    marginTop: "1em",
     marginLeft: "auto",
     marginRight: "auto",
   },
 
   title: {
-    fontSize: "3em",
+    fontSize: "2em",
   },
 }));
 
-export default function Mainpic(props) {
+export default function Spotpic(props) {
   const classes = useStyles();
   const { post } = props;
 
@@ -53,7 +54,7 @@ export default function Mainpic(props) {
         <div className={classes.mainFeaturedPostContent}>
           <Grid item>
             <Typography className={classes.title} color="inherit" gutterBottom>
-              {post.title}
+              {/* {post.title} */}
             </Typography>
           </Grid>
           <Grid item></Grid>
@@ -63,6 +64,6 @@ export default function Mainpic(props) {
   );
 }
 
-Mainpic.propTypes = {
+Spotpic.propTypes = {
   post: PropTypes.object,
 };

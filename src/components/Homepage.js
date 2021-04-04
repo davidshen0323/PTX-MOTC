@@ -1,22 +1,22 @@
 import React from "react";
 import Navbar from "./Navbar";
 import MainPic from "./Mainpic";
-import FeaturedPic from "./Featuredpic";
-import City from "./City";
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
-import Scenicspot from "./Scenicspot";
-// import { Link } from 'react-router-dom';
-import AnchorLink from 'react-anchor-link-smooth-scroll';
-import Featuredpic from "./Featuredpic";
+import AnchorLink from "react-anchor-link-smooth-scroll";
 import ScrollToTop from "react-scroll-to-top";
-
+import {
+  Card,
+  CardContent,
+  Typography,
+  TextField,
+  CardActionArea,
+  CardMedia,
+} from "@material-ui/core";
+// import taiwan from '../images/taiwan-cover.jpg';
 
 const useStyles = makeStyles((theme) => ({
-  //   img: {
-  //     : "rgba(0,0,0,.3)",
-  //   }
   home: {
     backgroundColor: "black",
   },
@@ -24,24 +24,32 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.common.white,
     fontWeight: "bold",
     backgroundColor: "rgba(0,0,0,.6)",
-    width: "18em",
+    width: "14em",
     padding: "8px 40px",
     fontSize: "16px",
-    // marginBottom: "30em",
-    marginTop: "34em",
-    position: 'absolute',
+    marginTop: "32em",
+    position: "absolute",
     zIndex: 1,
   },
   homebg: {
-    // zIndex: 1,
-    // marginLeft: 'auto',
-    // marginRight: 'auto',
-    display: 'flex',
-    // textAlign: 'center',
-    // justifyItems: 'center',
-    // justifySelf: 'center',
-    justifyContent: 'center',
-    // alignContent: 'center',
+    display: "flex",
+    justifyContent: "center",
+  },
+  card: {
+    display: "flex",
+    marginTop: "2.5em",
+    marginBottom: "2em",
+    marginRight: "2em",
+    marginLeft: "2em",
+    backgroundColor: "#626262",
+    color: "white",
+    borderRadius: "10px",
+    width: "20em",
+    textAlign: "center",
+  },
+  photo: {
+    height: 0,
+    paddingTop: "56.25%",
   },
 }));
 
@@ -54,69 +62,51 @@ const mainPic = {
   linkText: "Continue reading…",
 };
 
-// const featuredPic = [
-//   {
-//     title: 'Featured post',
-//     date: 'Nov 12',
-//     description:
-//       'This is a wider card with supporting text below as a natural lead-in to additional content.',
-//     image: 'https://source.unsplash.com/random',
-//     imageText: 'Image Text',
-//   },
-//   {
-//     title: 'Post title',
-//     date: 'Nov 11',
-//     description:
-//       'This is a wider card with supporting text below as a natural lead-in to additional content.',
-//     image: 'https://source.unsplash.com/random',
-//     imageText: 'Image Text',
-//   },
-// ];
-
 export default function Homepage() {
   const classes = useStyles();
- 
+
   return (
     <div>
-   
-      <Grid
-      // container
-      // direction="row"
-      // justify="center"
-      // alignItems="center"
-
-      //   spacing={2}
-      >
+      <Grid>
         <Grid>
           <AnchorLink href="#content" className={classes.homebg}>
-          <Button variant="outlined" className={classes.button}>
-            了解更多
-          </Button>
+            <Button variant="outlined" className={classes.button}>
+              了解更多
+            </Button>
           </AnchorLink>
         </Grid>
         <Grid>
-          <MainPic post={mainPic}/>
-          {/* <img
-              className={classes.img}
-              src={require("../images/taiwan.jpg").default}
-              alt=""
-            /> */}
+          <MainPic post={mainPic} />
         </Grid>
         <Grid>
-          {/* <Button>了解更多</Button> */}
           <Navbar num={0} />
         </Grid>
         <Grid id="content" container className={classes.home}>
-          {/* <Featuredpic /> */}
-          {/* <City /> */}
-          {/* {featuredPic.map((post) => (
-              <FeaturedPic key={post.title} post={post} />
-            ))} */}
+          <Grid item xs={12} md={6} className={classes.homebg}>
+            <Card className={classes.card}>
+              <CardActionArea href="/scenicSpot">
+                <CardContent>
+                  <Typography>全部景點列表</Typography>
+                </CardContent>
+              </CardActionArea>
+            </Card>
+          </Grid>
+          <Grid item xs={12} md={6} className={classes.homebg}>
+            <Card className={classes.card}>
+              <CardActionArea href="/scenicSpot/Taipei">
+                <CardContent>
+                  <Typography>縣市景點列表</Typography>
+                </CardContent>
+              </CardActionArea>
+            </Card>
+          </Grid>
         </Grid>
-        <ScrollToTop smooth color="white" style={{backgroundColor: "black"}}/>
-
+        <ScrollToTop
+          smooth
+          color="white"
+          style={{ backgroundColor: "black" }}
+        />
       </Grid>
-      </div>
-    
+    </div>
   );
 }
