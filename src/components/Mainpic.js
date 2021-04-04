@@ -7,7 +7,7 @@ import Grid from "@material-ui/core/Grid";
 import taiwan from "../images/taiwan.jpg";
 
 const useStyles = makeStyles((theme) => ({
-  mainFeaturedPost: {
+  mainPic: {
     position: "relative",
     backgroundColor: theme.palette.grey[800],
     color: theme.palette.common.white,
@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
     left: 0,
     backgroundColor: "rgba(0,0,0,.3)",
   },
-  mainFeaturedPostContent: {
+  mainPicContent: {
     position: "relative",
     padding: theme.spacing(3),
     [theme.breakpoints.up("md")]: {
@@ -47,10 +47,10 @@ export default function Mainpic(props) {
   const { post } = props;
 
   return (
-    <Paper className={classes.mainFeaturedPost}>
+    <Paper className={classes.mainPic}>
       <div className={classes.overlay} />
       <Grid container>
-        <div className={classes.mainFeaturedPostContent}>
+        <div className={classes.mainPicContent}>
           <Grid item>
             <Typography className={classes.title} color="inherit" gutterBottom>
               {post.title}

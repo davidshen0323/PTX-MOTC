@@ -7,7 +7,7 @@ import CardActionArea from "@material-ui/core/CardActionArea";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
-import loadinggif from "../images/loading.gif";
+// import loadinggif from "../images/loading.gif";
 
 const useStyles = makeStyles((theme) => ({
   card: {
@@ -50,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Featuredpic() {
+export default function Spot() {
   const classes = useStyles();
   const [spot, setSpot] = React.useState([]);
   const [count, setCount] = useState(0);
@@ -143,9 +143,9 @@ export default function Featuredpic() {
         ))}
       </Grid>
       <div className={classes.loading}>
-        <div className={classes.loadinggifdiv}>
+        {/* <div className={classes.loadinggifdiv}>
           <img src={loadinggif} alt="" />
-        </div>
+        </div> */}
         <div className={classes.loadinggifdiv}>
           <Button className={classes.load} onClick={loadMore} ref={spotEnd}>
             L

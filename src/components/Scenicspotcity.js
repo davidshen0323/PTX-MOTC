@@ -1,6 +1,5 @@
 import React from "react";
 import Navbar from "./Navbar";
-import MainPic from "./Mainpic";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import City from "./City";
@@ -26,15 +25,6 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
   },
 }));
-
-const mainPic = {
-  title: "MOTC 台灣景點趣",
-  description:
-    "Multiple lines of text that form the lede, informing new readers quickly and efficiently about what's most interesting in this post's contents.",
-  image: "../images/taiwan.jpg",
-  imgText: "main image description",
-  linkText: "Continue reading…",
-};
 
 export default function Scenicspotcity() {
   const classes = useStyles();

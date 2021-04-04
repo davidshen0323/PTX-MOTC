@@ -10,11 +10,8 @@ import {
   Card,
   CardContent,
   Typography,
-  TextField,
   CardActionArea,
-  CardMedia,
 } from "@material-ui/core";
-// import taiwan from '../images/taiwan-cover.jpg';
 
 const useStyles = makeStyles((theme) => ({
   home: {

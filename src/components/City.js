@@ -8,7 +8,6 @@ import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
 import { useParams } from "react-router-dom";
-import loadinggif from "../images/loading.gif";
 
 const useStyles = makeStyles((theme) => ({
   card: {
@@ -45,9 +44,6 @@ const useStyles = makeStyles((theme) => ({
   loading: {
     marginLeft: "auto",
     marginRight: "auto",
-  },
-  loadinggifdiv: {
-    textAlign: "center",
   },
 }));
 
@@ -143,9 +139,6 @@ export default function City() {
       </Grid>
 
       <div className={classes.loading}>
-        {/* <div className={classes.loadinggifdiv}>
-          <img src={loadinggif} alt="" />
-        </div> */}
         <div className={classes.loadinggifdiv}>
           <Button
             className={classes.load}

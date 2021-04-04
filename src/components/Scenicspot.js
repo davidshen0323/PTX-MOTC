@@ -1,9 +1,8 @@
 import React from "react";
 import Navbar from "./Navbar";
-import SpotPic from "./Spotpic";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
-import Featuredpic from "./Featuredpic";
+import Spot from "./Spot";
 import ScrollToTop from "react-scroll-to-top";
 
 const useStyles = makeStyles((theme) => ({
@@ -37,7 +36,7 @@ export default function Sceincspot() {
           <Navbar num={1} />
         </Grid>
         <Grid container className={classes.home}>
-          <Featuredpic />
+          <Spot />
         </Grid>
         <ScrollToTop
           smooth
